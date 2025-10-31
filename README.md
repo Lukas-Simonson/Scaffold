@@ -1,4 +1,4 @@
-# Scaffold
+# 🏗️ Scaffold
 
 A Swift macro-based dependency injection framework that provides elegant, type-safe dependency management through compile-time code generation.
 
@@ -31,7 +31,7 @@ Or add it to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/youruser/Scaffold", from: "1.0.0")
+    .package(url: "https://github.com/youruser/Scaffold", from: "0.1.0")
 ]
 ```
 
@@ -403,35 +403,6 @@ All dependency factories are thread-safe by default. No additional synchronizati
 
 Scaffold uses Swift macros for zero-runtime overhead. All dependency wiring is resolved at compile-time.
 
-## Advanced Usage
-
-### Custom Factory Patterns
-
-You can combine Scaffold with custom factory patterns:
-
-```swift
-@Abstract
-final class CustomScaffold: AbstractCustomScaffold {
-    
-    @Single
-    func configurationManager() -> ConfigurationManager {
-        ConfigurationManager(environment: .production)
-    }
-    
-    // Custom factory method without macro
-    func environmentSpecificService() -> EnvironmentService {
-        switch configurationManager().environment {
-        case .development:
-            return DevelopmentService()
-        case .staging:
-            return StagingService()
-        case .production:
-            return ProductionService()
-        }
-    }
-}
-```
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -439,9 +410,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Related Resources
-
-- [Swift Macros Documentation](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros/)
-- [Dependency Injection Patterns](https://developer.apple.com/documentation/swift/adoptingasynchronousfunctions)
-- [Thread Safety in Swift](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/)
